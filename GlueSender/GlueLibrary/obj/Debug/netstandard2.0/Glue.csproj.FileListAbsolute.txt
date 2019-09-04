@@ -1,0 +1,9 @@
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\bin\Debug\netstandard2.0\Glue.deps.json
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\bin\Debug\netstandard2.0\Glue.dll
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\bin\Debug\netstandard2.0\Glue.pdb
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\obj\Debug\netstandard2.0\Glue.csprojAssemblyReference.cache
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\obj\Debug\netstandard2.0\Glue.csproj.CoreCompileInputs.cache
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\obj\Debug\netstandard2.0\Glue.AssemblyInfoInputs.cache
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\obj\Debug\netstandard2.0\Glue.AssemblyInfo.cs
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\obj\Debug\netstandard2.0\Glue.dll
+E:\git\nsynk\CerasUnityIssues\GlueSender\GlueLibrary\obj\Debug\netstandard2.0\Glue.pdb

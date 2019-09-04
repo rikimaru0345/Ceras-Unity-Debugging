@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors />
+    <Company>NSYNK Gesellschaft für Kunst und Technik</Company>
+    <Product>Glue</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ceras" Version="4.0.38" />
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+  </ItemGroup>
+
+</Project>
