@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
+    xsi:schemaLocation="UnityEngine.UIElements ../../../../UIElementsSchema/UnityEngine.UIElements.xsd
+                        UnityEditor.UIElements ../../../../UIElementsSchema/UnityEditor.UIElements.xsd
+                        UnityEditor.PackageManager.UI ../../../../UIElementsSchema/UnityEditor.PackageManager.UI.xsd
+                        ">
+
+  <engine:VisualElement class="glue-inspector">
+    <engine:VisualElement>
+      <engine:Label class="heading" text="Glue Inspector" />
+      <engine:Toggle name="evaluateEveryFrame" label="Evaluate Every Frame" />
+
+      <engine:TextField name="fps" label="FPS" text="-" />
+      <engine:TextField name="counter" label="Counter" text="" />
+      <engine:TextField name="counterDifference" label="Counter Difference" text="" />
+      <engine:TextField name="timeBetween" label="Milliseconds btw. Receive Frame/Late Update" text="" />
+      <engine:TextField name="sentBytes" label="Sent Bytes" text="" />
+    </engine:VisualElement>
+
+
+    <engine:VisualElement name="receivedFrame" class="block-frame">
+      <engine:Label class="heading" text="Received Frame" />
+    </engine:VisualElement>
+
+    <engine:VisualElement name="sendFrame" class="block-frame">
+      <engine:Label class="heading" text="Sending Frame" />
+    </engine:VisualElement>
+  </engine:VisualElement>
+</engine:UXML>

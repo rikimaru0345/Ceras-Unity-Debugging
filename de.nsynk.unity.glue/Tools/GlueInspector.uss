@@ -1,0 +1,23 @@
+.glue-inspector {
+    margin: 5px;
+}
+
+
+TextField {
+    display: flex;
+}
+
+Label {
+    font-size: 10;
+    font-weight: bold;
+    text-color: rgb(255, 255, 255);
+}
+
+.heading {
+    font-size: 16;
+    font-weight: bold;
+}
+
+.block-frame {
+    margin-top: 20px;
+}

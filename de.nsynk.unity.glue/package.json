@@ -1,0 +1,10 @@
+{
+  "name": "de.nsynk.unity.glue",
+  "displayName": "Glue",
+  "description": "Synchronize and control Unity with vvvv",
+  "version": "0.1.8",
+  "unity": "2019.1",
+  "unityRelease": "3f1",
+  "dependencies": {
+  }
+}
