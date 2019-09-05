@@ -1,6 +1,8 @@
 
-GlueLibrary/obj/
-GlueLibrary/bin/
+/GlueLibrary/obj/
+/GlueLibrary/bin/
 
-GlueSender/obj/
-GlueSender/bin/
+/GlueSender/obj/
+/GlueSender/bin/
+
+/.vs/
