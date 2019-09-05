@@ -130,11 +130,9 @@ namespace Glue
         if (DataPool.Settings.IsVerbose)
           Debug.Log($"EXCEPTION: {se.Message}");
       }
-      catch (System.ArgumentException e)
+      catch (Exception e)
       {
-        if (DataPool.Settings.IsVerbose)
-          Debug.Log($"EXCEPTION: {e.Message}\n{e.StackTrace}");
-        Debug.Log(e);
+	    Debug.LogException(e);
       }
     }
 
