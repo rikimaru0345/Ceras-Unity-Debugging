@@ -17,8 +17,8 @@ namespace Glue
 		// Expose settings for UI
 		public Settings Settings = DataPool.Settings;
 
-		private UdpClient _socket;
-		private IPEndPoint _endpoint;
+		private UdpClient _socket, _sendSocket;
+		private IPEndPoint _endpoint, _sendEndpoint;
 
 		private float _currentFPS = 0;
 		private int _frameCounter = 0;
@@ -82,9 +82,11 @@ namespace Glue
 
 		private void SetupSerializer()
 		{
-			var config = new SerializerConfig();
-			_cerasSerializer = new CerasSerializer(config);
-			_cerasDeserializer = new CerasSerializer(config);
+			var configS = new SerializerConfig();
+			_cerasSerializer = new CerasSerializer(configS);
+
+			var configD = new SerializerConfig();
+			_cerasDeserializer = new CerasSerializer(configD);
 		}
 
 		private void StartStreaming()
@@ -101,6 +103,13 @@ namespace Glue
 											   true);
 				_socket.Client.Bind(_endpoint);
 				_socket.BeginReceive(new AsyncCallback(ReceiveFrame), _socket);
+
+				_sendEndpoint = new IPEndPoint(IPAddress.Parse(DataPool.Settings.IPOfReceiver), DataPool.Settings.PortOfUnityReceiver);
+				_sendSocket = new UdpClient();
+				_sendSocket.Client.SetSocketOption(SocketOptionLevel.Socket,
+											   SocketOptionName.ReuseAddress,
+											   true);
+				_sendSocket.Client.Bind(_sendEndpoint);
 			}
 			catch (SocketException se)
 			{
@@ -109,10 +118,16 @@ namespace Glue
 			}
 		}
 
+		
+		int recvCounter = 0;
+
 		private void ReceiveFrame(IAsyncResult result)
 		{
 			if (!_socket.Client.Connected)
 				return;
+
+			recvCounter++;
+
 			try
 			{
 				_timeAtReceivedFrame = System.DateTime.Now;
@@ -120,7 +135,7 @@ namespace Glue
 				var receivedData = _socket.EndReceive(result, ref _endpoint);
 				// System.IO.File.WriteAllBytes("ceras.receiveframe.bin", receivedData);
 				_cerasDeserializer.Deserialize<Frame>(ref DataPool.ReceivedFrame, receivedData);
-				Debug.Log(DataPool.ReceivedFrame.ToString());
+				//Debug.Log(DataPool.ReceivedFrame.ToString());
 				DataPool.Diagnostics.SocketReceiveBufferSize = receivedData.Length;
 				DataPool.Diagnostics.SocketAvailable = _socket.Available;
 				if (onReceiveFrame != null)
@@ -138,12 +153,22 @@ namespace Glue
 			}
 		}
 
+		int sendCounter = 0;
+		public int AllowSendCount = 0;
+
 		private void SendBackFrame()
 		{
+
+			if(AllowSendCount <= 0)
+				return;
+			AllowSendCount--;
+			sendCounter++;
+
+
 			try
 			{
 				_sendAmount = _cerasSerializer.Serialize<Frame>(DataPool.SendFrame, ref _cerasSendBuffer);
-				_socket.Send(_cerasSendBuffer, _sendAmount, DataPool.Settings.IPOfReceiver, DataPool.Settings.PortOfUnityReceiver);
+				_sendSocket.Send(_cerasSendBuffer, _sendAmount, DataPool.Settings.IPOfReceiver, DataPool.Settings.PortOfUnityReceiver);
 			}
 			catch (SocketException se)
 			{

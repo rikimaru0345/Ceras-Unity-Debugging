@@ -7,7 +7,7 @@ namespace Glue
   public class Settings 
   {
     [Header("Debugging")]
-    public bool IsVerbose = false;
+    public bool IsVerbose = true;
 
     [Header("Refresh Rate")]
     public bool OverrideVSync = false;
