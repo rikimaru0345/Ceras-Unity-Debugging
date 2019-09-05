@@ -1,7 +1,6 @@
 
-GlueSender/GlueLibrary/obj/
-GlueSender/GlueLibrary/bin/
+GlueLibrary/obj/
+GlueLibrary/bin/
 
-
-GlueSender/GlueSender/obj/
-GlueSender/GlueSender/bin/
+GlueSender/obj/
+GlueSender/bin/
