@@ -64,7 +64,7 @@ namespace Glue
       DataPool.SendFrame.Counter = (ulong)_frameCounter;
       DataPool.Diagnostics.Framecount = _frameCounter;
       DataPool.Diagnostics.ReceiveFrameDifference = DataPool.ReceivedFrame.Counter - _lastFrameFrameCounter;
-      DataPool.Diagnostics.TimeBetweenReceivedAndLateUpdate_ms = (_timeAtLateUpdate - _timeAtReceivedFrame).Milliseconds;
+      DataPool.Diagnostics.TimeBetweenReceivedAndLateUpdate_ms = (int)(_timeAtLateUpdate - _timeAtReceivedFrame).TotalMilliseconds;
       _currentFPS = 1f / Time.unscaledDeltaTime;
       DataPool.Diagnostics.FPS = (int)_currentFPS;
     }
