@@ -118,7 +118,7 @@ namespace Glue
 				_timeAtReceivedFrame = System.DateTime.Now;
 				_lastFrameFrameCounter = DataPool.ReceivedFrame.Counter;
 				var receivedData = _socket.EndReceive(result, ref _endpoint);
-				System.IO.File.WriteAllBytes("ceras.receiveframe.bin", receivedData);
+				// System.IO.File.WriteAllBytes("ceras.receiveframe.bin", receivedData);
 				_cerasDeserializer.Deserialize<Frame>(ref DataPool.ReceivedFrame, receivedData);
 				Debug.Log(DataPool.ReceivedFrame.ToString());
 				DataPool.Diagnostics.SocketReceiveBufferSize = receivedData.Length;
